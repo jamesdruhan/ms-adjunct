@@ -1,6 +1,7 @@
-function helloWorld () : void
+export default class VueMSGraph
 {
-    console.log( 'Hello World!' );
+    static install ( vue : any, options : any ) : void
+    {
+        vue.prototype.$vueMSGraph = new stuff (options) {};
+    }
 }
-
-export { helloWorld };
