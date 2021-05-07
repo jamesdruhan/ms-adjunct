@@ -19,6 +19,8 @@
 	],
 	"main": "dist/vue-msgraph.js",
 	"scripts": {
+		"build": "tsc -p tsconfig.json",
+		"start": "tsc -p tsconfig.json --watch",
 		"lint": "eslint --ext .ts src/**"
 	},
 	"devDependencies": {
