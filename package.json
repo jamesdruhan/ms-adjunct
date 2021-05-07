@@ -4,13 +4,13 @@
 	"author": "James Druhan <jdruhan.code@gmail.com>",
 	"description": "MSAL and Microsoft Graph API wrapper for VueJS.",
 	"license": "MIT",
-	"homepage": "",
+	"homepage": "https://github.com/jamesdruhan/vue-msgraph",
 	"repository": {
 		"type": "git",
-		"url": ""
+		"url": "https://github.com/jamesdruhan/vue-msgraph"
 	},
 	"bugs": {
-		"url": ""
+		"url": "https://github.com/jamesdruhan/vue-msgraph/issues"
 	},
 	"keywords": [
 		"vue",
