@@ -1,8 +1,8 @@
 {
-	"name": "vue-msgraph",
+	"name": "ms-adjunct",
 	"version": "1.0.0",
 	"author": "James Druhan <jdruhan.code@gmail.com>",
-	"description": "MSAL and Microsoft Graph API wrapper for VueJS.",
+	"description": "MSAL and Microsoft Graph API wrapper for simplified O365 authentication and MS Graph communication.",
 	"license": "MIT",
 	"homepage": "https://github.com/jamesdruhan/vue-msgraph",
 	"repository": {

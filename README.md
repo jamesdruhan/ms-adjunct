@@ -1,1 +1,1 @@
-vue-msgraph
+ms-adjunct
