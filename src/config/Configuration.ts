@@ -6,10 +6,11 @@
  * @license MIT
  */
 
-import { Version } from "../graph/Utility";
+import { Version, AuthType } from "../graph/Utility";
 import { Configuration as MSALConfig } from "@azure/msal-browser";
 
 export interface Configuration extends MSALConfig
 {
+    authType?     : AuthType,
     graphVersion? : Version,
 }
