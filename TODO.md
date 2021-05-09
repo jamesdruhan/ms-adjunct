@@ -19,3 +19,9 @@
 - Call to GROUPS endpoint
 - Call to PEOPLE endpoint
 - Call to SITES (SHAREPOINT) endpoint
+
+
+
+
+
+1. Need to add both redirect login and popup for choice.
