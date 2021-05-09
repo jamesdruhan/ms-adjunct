@@ -13,7 +13,7 @@
  * 
  * @enum { string }
  */
-export enum Version
+export enum GraphVersion
 {
     CURRENT = "v1.0",
     ONE     = "v1.0",
@@ -27,8 +27,21 @@ export enum Version
  * 
  * @enum { string }
  */
- export enum AuthType
+ export enum LoginType
  {
      REDIRECT = "redirect",
      POPUP    = "popup"
  }
+
+ /**
+ * Indicates the storage type for login token and session data.
+ * 
+ * @readonly
+ * 
+ * @enum { string }
+ */
+  export enum LoginPersistance
+  {
+      FORGET   = "sessionStorage",
+      REMEMBER = "localStorage"
+  }
