@@ -1,5 +1,5 @@
 /**
- * @file Graph utility ENUM types.
+ * @file MS Adjunct utility
  * 
  * @author James Druhan
  * 
@@ -45,3 +45,18 @@ export enum GraphVersion
       FORGET   = "sessionStorage",
       REMEMBER = "localStorage"
   }
+
+   /**
+ * Handy list of useful URL's.
+ * 
+ * @readonly
+ * 
+ * @enum { string }
+ */
+    export enum URL
+    {
+        MS_AUTHORITY  = "https://login.microsoftonline.com/common",
+        GRAPH_CURRENT = "https://graph.microsoft.com/v1.0",
+        GRAPH_ONE     = "https://graph.microsoft.com/v1.0",
+        GRAPH_BETA    = "https://graph.microsoft.com/beta"
+    }
