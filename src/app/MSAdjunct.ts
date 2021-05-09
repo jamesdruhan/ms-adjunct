@@ -23,6 +23,12 @@ export class MSAdjunct implements IMSAdjunct
     // Authentication method used to login a user: Redirect or Popup.
     protected authType : AuthType;
 
+    // List of Microsoft Identity scopes for the application.
+    protected appScope : Array <string>;
+
+    // List of Microsoft Graph scopes to be used on custom Graph API calls.
+    protected graphScope : Array <string>;
+
     // Primary MSAL client object.
     protected msal : PublicClientApplication;
 
@@ -47,5 +53,11 @@ export class MSAdjunct implements IMSAdjunct
 
         // Set the authentication method: Redirect or Popup.
         this.authType = this.config.authType ?? AuthType.POPUP;
+
+        // Set the application scopes for Microsoft Identity.
+        this.appScope = this.config.appScope ?? [ 'openid', 'profile' ];
+
+        // Set the scopes when performing custom Graph API calls.
+        this.graphScope = this.config.appScope ?? [ 'openid', 'profile' ];
     }
 }

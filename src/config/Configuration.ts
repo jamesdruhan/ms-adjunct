@@ -13,4 +13,6 @@ export interface Configuration extends MSALConfig
 {
     authType?     : AuthType,
     graphVersion? : Version,
+    appScope?     : Array <string>,
+    graphScope?   : Array <string>
 }
