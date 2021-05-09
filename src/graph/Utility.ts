@@ -19,3 +19,16 @@ export enum Version
     ONE     = "v1.0",
     BETA    = "beta"
 }
+
+/**
+ * Represents the authentication method used for user login: Redirect or Popup.
+ * 
+ * @readonly
+ * 
+ * @enum { string }
+ */
+ export enum AuthType
+ {
+     REDIRECT = "redirect",
+     POPUP    = "popup"
+ }
