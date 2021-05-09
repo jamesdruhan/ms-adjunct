@@ -8,4 +8,6 @@
  * @module ms-adjunct
  */
 
-export { MSAdjunct } from "./app/MSAdjunct";
+export { Configuration } from "./config/Configuration";
+export { GraphVersion, LoginType, LoginPersistance } from "./utility/Utility";
+export { Appoint } from "./app/Appoint";
