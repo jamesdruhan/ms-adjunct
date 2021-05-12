@@ -9,7 +9,7 @@
 import { IAppoint } from "./IAppoint";
 import { SettingManager } from "../config/SettingManager";
 import { Settings } from "../config/Settings";
-import { Auth } from "../authentication/Auth";
+import { Authentication } from "../auth/Authentication";
 import { AccountInfo } from "@azure/msal-browser";
 
 /**
@@ -29,9 +29,9 @@ export class Appoint implements IAppoint
     /**
      * Auth object for managing authentication tasks.
      * 
-     * @type { Auth }
+     * @type { Authentication }
      */
-    protected auth : Auth;
+    protected auth : Authentication;
 
     /**
      * @class Create a new instance of the Appoint class.
@@ -46,7 +46,7 @@ export class Appoint implements IAppoint
     constructor ( settings : Settings )
     {
         this.context = SettingManager.build( settings );
-        this.auth    = new Auth( this.context );
+        this.auth    = new Authentication( this.context );
     }
 
     /**

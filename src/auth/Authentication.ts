@@ -14,7 +14,7 @@ import { AuthenticationResult, AccountInfo } from "@azure/msal-browser";
 /**
  * Class which manages all authentication actions for MS Adjunct.
  */
-export class Auth
+export class Authentication
 {
     /**
      * Settings object which contains all necessary data to execute MS Adjunct commands.
@@ -38,7 +38,7 @@ export class Auth
      * const auth : Auth = new Auth( context );
      * 
      * @param { Settings } context - MS Adjunct settings object.
-     * @returns { Auth } - Object of the Auth class.
+     * @returns { Authentication } - Object of the Auth class.
      */
     constructor ( context : Settings )
     {
