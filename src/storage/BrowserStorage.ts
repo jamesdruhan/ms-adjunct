@@ -1,7 +1,7 @@
 /**
- * @file Provides helpers to manage browser storage data.
- * @version 1.0.0
- * @since 1.0.0
+ * @file BrowserStorage for Adjunct Graph which manages browser storage.
+ * @version 0.1.0
+ * @since 0.1.0
  * @author James Druhan <jdruhan.code@gmail.com>
  * @license MIT
  */
@@ -10,14 +10,14 @@ import { SignInPersistance } from '../utility/Constants';
 import { IBrowserStorage }  from "./IBrowserStorage";
 
 /**
- * Class which manages browser storage.
+ * BrowserStorage for Adjunct Graph which manages browser storage.
  * 
  * @implements { IBrowserStorage }
  */
 export class BrowserStorage implements IBrowserStorage
 {
     /**
-     * Name of the browser storage to use for storage commands.
+     * Identifies the type of browser storage to be used: localStorage or sessionStorage.
      * 
      * @type { Storage }
      */
@@ -35,39 +35,50 @@ export class BrowserStorage implements IBrowserStorage
      */
     constructor ( storageType : SignInPersistance )
     {
-        this.windowStorage = window[storageType];
+        this.windowStorage = window [storageType];
     }
 
     /**
-     * Get the value based on the passed key from the browser storage.
+     * Get the value in browser storage assigned to the key parameter.
+     * 
+     * @example
+     * browserStorage.setItem( 'myStorageKey', 'anInterestingValue' );
+     * browserStorage.getItem( 'myStorageKey' ); // "anInterestingValue"
      * 
      * @param {string } key - Name of browser storage key.
      * @returns { (string | null) } - Value in browser storage matching key.
      */
-    getItem( key : string ) : string | null
+    public getItem ( key : string ) : string | null
     {
         return this.windowStorage.getItem( key );
     }
 
     /**
-     * Create or set the key value in the browser storage.
+     * Create a new key or update an existing key value in the browser storage.
      * 
-     * @param { string } key - Name of the browser storage key to create or set.
-     * @param { string } value - Value to set in the browser storage matching key.
+     * @example
+     * browserStorage.setItem( 'myStorageKey', 'anInterestingValue' );
+     * 
+     * @param { string } key - Name of the browser storage key to create or update.
+     * @param { string } value - Value to set.
      * @returns { void }
      */
-    setItem( key : string, value : string ) : void
+    public setItem ( key : string, value : string ) : void
     {
         this.windowStorage.setItem( key, value );
     }
 
     /**
-     * Delete the key/value pair in the browser storage.
+     * Delete a key/value pair in the browser storage.
+     * 
+     * @example
+     * browserStorage.setItem( 'myStorageKey', 'anInterestingValue' );
+     * browserStorage.removeItem( 'myStorageKey' );
      * 
      * @param { string } key - Name of the browser storage key to delete.
      * @returns { void }
      */
-    removeItem( key: string ) : void
+    public removeItem ( key: string ) : void
     {
         this.windowStorage.removeItem( key );
     }
@@ -75,9 +86,13 @@ export class BrowserStorage implements IBrowserStorage
     /**
      * Get all the keys from the browser storage object as an iterable array of strings.
      * 
-     * @returns { string[] } - All the keys from the browser storage.
+     * @example
+     * browserStorage.setItem( 'myStorageKey', 'anInterestingValue' );
+     * browserStorage.getKeys(); // [ 'myStorageKey' ]
+     * 
+     * @returns { string [] } - All the keys from the browser storage.
      */
-    getKeys() : string[]
+    public getKeys () : string []
     {
         return Object.keys( this.windowStorage );
     }
@@ -85,10 +100,14 @@ export class BrowserStorage implements IBrowserStorage
     /**
      * Gets a true or false value, indicating if the key is present in browser storage.
      * 
+     * @example
+     * browserStorage.setItem( 'myStorageKey', 'anInterestingValue' );
+     * browserStorage.containsKey( 'myStorageKey' ); // true
+     * 
      * @param { string } key - Name of the key to check in browser storage.
      * @returns { boolean } - True or false value indicating if the key is present in browser storage.
      */
-    containsKey( key : string ): boolean
+    public containsKey ( key : string ) : boolean
     {
         return this.windowStorage.hasOwnProperty( key );
     }

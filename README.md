@@ -1,1 +1,1 @@
-ms-adjunct
+adjunct-graph

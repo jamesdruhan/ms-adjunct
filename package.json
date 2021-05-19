@@ -1,21 +1,24 @@
 {
-	"name": "ms-adjunct",
-	"version": "1.0.0",
+	"name": "adjunct-graph",
+	"version": "0.1.0",
 	"author": "James Druhan <jdruhan.code@gmail.com>",
-	"description": "MSAL and Microsoft Graph API wrapper for simplified O365 authentication and MS Graph communication.",
+	"description": "Adjunct for the Microsoft Graph API.",
 	"license": "MIT",
-	"homepage": "https://github.com/jamesdruhan/vue-msgraph",
+	"homepage": "https://github.com/adjunct-js/adjunct-graph",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/jamesdruhan/vue-msgraph"
+		"url": "https://github.com/adjunct-js/adjunct-graph"
 	},
 	"bugs": {
-		"url": "https://github.com/jamesdruhan/vue-msgraph/issues"
+		"url": "https://github.com/adjunct-js/adjunct-graph/issues"
 	},
 	"keywords": [
-		"vue",
+		"adjunct",
+		"microsoft",
+		"graph",
 		"msal",
-		"graph"
+		"authentication",
+		"api"
 	],
 	"main": "./dist/index.js",
 	"types": "./dist/types",
