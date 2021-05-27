@@ -31,7 +31,7 @@ export enum SignInMethod
     POPUP    = "popup"
 }
 
- /**
+/**
  * Browser storage choice for Adjunct Graph.
  * 
  * @readonly
@@ -43,7 +43,7 @@ export enum SignInPersistance
     REMEMBER = "localStorage"
 }
 
- /**
+/**
  * Microsoft Identity / Graph URL choice.
  * 
  * @readonly
@@ -56,7 +56,7 @@ export enum URL
     GRAPH_API_BASE      = "https://graph.microsoft.com",
 }
 
- /**
+/**
  * Browser storage key for Adjunct Graph.
  * 
  * @readonly
@@ -105,7 +105,8 @@ export enum GraphErrorCode
     EXPIRED_TOKEN       = "interaction_required",
     REQUEST_DENIED      = "Authorization_RequestDenied",
     ACCESS_DENIED       = "accessDenied",
-    ERROR_ACCESS_DENIED = "ErrorAccessDenied"
+    ERROR_ACCESS_DENIED = "ErrorAccessDenied",
+    LOGIN_REQUIRED      = "login_required"
 }
 
 /**
@@ -114,15 +115,15 @@ export enum GraphErrorCode
  * @readonly
  * @enum { string }
  */
- export enum PhotoSizeM365
- {
-     XXXSMALL = "48x48",
-     XXSMALL  = "64x64",
-     XSMALL   = "96x96",
-     SMALL    = "120x120",
-     MEDIUM   = "240x240",
-     LARGE    = "360x360",
-     XLarge   = "432x432",
-     XXLarge  = "504x504",
-     XXXLarge = "648x648"
- }
+export enum PhotoSizeM365
+{
+    XXXSMALL = "48x48",
+    XXSMALL  = "64x64",
+    XSMALL   = "96x96",
+    SMALL    = "120x120",
+    MEDIUM   = "240x240",
+    LARGE    = "360x360",
+    XLarge   = "432x432",
+    XXLarge  = "504x504",
+    XXXLarge = "648x648"
+}

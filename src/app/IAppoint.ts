@@ -12,7 +12,7 @@ import { TokenType, PhotoSizeM365 } from "../utility/Constants";
 import type { User } from "../types/User";
 import type { AuthenticationResult } from "@azure/msal-browser";
 
- /**
+/**
  * @interface Interface for IAppoint class.
  */
 export interface IAppoint

@@ -14,6 +14,7 @@ import { InteractionRequiredAuthError } from "@azure/msal-browser";
 
 import type { Settings } from "../config/Settings";
 import type { AuthenticationResult, AccountInfo, SilentRequest } from "@azure/msal-browser";
+import { Graph } from "../graph/Graph";
 
 /**
  * Manages all authentication actions for Adjunct Graph.
@@ -85,7 +86,7 @@ export class Authentication implements IAuthentication
         const foundAccount : AccountInfo | null = this.getLoggedInAccount();
 
         // Clear Adjunct data.
-        this.clearStorage();;
+        this.clearStorage();
 
         // If no account was found, return null (user already logged out).
         if ( foundAccount === null )
@@ -190,10 +191,10 @@ export class Authentication implements IAuthentication
     }
 
     /**
-     *  Handles the response from Microsoft Identity when a user sign-in is performed.
+     * Handles the response from Microsoft Identity when a user sign-in is performed.
      * 
      * @param { AuthenticationResult } authResult - A MSAL AuthenticationResult contain account and token details.
-     * @returns @returns { Promise <AuthenticationResult> } - Promise with the AuthenticationResult object.
+     * @returns { Promise <AuthenticationResult> } - Promise with the AuthenticationResult object.
      */
     private async processLoginResult ( authResult : AuthenticationResult ) : Promise <AuthenticationResult>
     {
@@ -287,11 +288,11 @@ export class Authentication implements IAuthentication
      * 
      * Note: Setting forceLogin to true works best with the signInMethod of POPUP.
      * 
-     * @returns { Promise <AuthenticationResult } - Indicates if user is logged in or not.
+     * @returns { Promise <AuthenticationResult> } - Indicates if user is logged in or not.
      */
     public async getToken ( tokenType : TokenType = TokenType.GRAPH, forceLogin : boolean = false ) : Promise <AuthenticationResult>
     {
-        if ( forceLogin === true && this.browserStorage.getItem( AdjunctStorageKey.ADJUNCT_TOKEN_LOGIN_REQUIRED ) === 'yes' )
+        if ( forceLogin === true && this.browserStorage.getItem( AdjunctStorageKey.ADJUNCT_TOKEN_LOGIN_REQUIRED ) === "yes" )
         {
             try
             {
@@ -342,7 +343,7 @@ export class Authentication implements IAuthentication
                         return Promise.reject( AuthenticationErrorMessage.getTokenMissingPermissionScope ); 
                     }
 
-                    if ( e.errorCode === GraphErrorCode.EXPIRED_TOKEN )
+                    if ( e.errorCode === GraphErrorCode.EXPIRED_TOKEN || e.errorCode === GraphErrorCode.LOGIN_REQUIRED )
                     {
                         this.browserStorage.setItem( AdjunctStorageKey.ADJUNCT_TOKEN_LOGIN_REQUIRED, "yes" );
                     
@@ -426,9 +427,9 @@ export class Authentication implements IAuthentication
         {
             this.browserStorage.setItem( AdjunctStorageKey.ADJUNCT_ACCOUNT_HOMEACCOUNTID, authResult.account!.homeAccountId );
 
-            if ( typeof authResult.idTokenClaims !== 'undefined' && typeof authResult.idTokenClaims['roles'] !== 'undefined' && typeof authResult.idTokenClaims['roles'] === 'object' )
+            if ( typeof authResult.idTokenClaims !== "undefined" && typeof authResult.idTokenClaims["roles"] !== "undefined" && typeof authResult.idTokenClaims["roles"] === "object" )
             {
-                this.browserStorage.setItem( AdjunctStorageKey.ADJUNCT_ACCOUNT_ROLES, JSON.stringify( authResult.idTokenClaims['roles'] ) );
+                this.browserStorage.setItem( AdjunctStorageKey.ADJUNCT_ACCOUNT_ROLES, JSON.stringify( authResult.idTokenClaims["roles"] ) );
             }
         }
     }

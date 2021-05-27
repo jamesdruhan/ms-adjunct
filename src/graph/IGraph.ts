@@ -11,8 +11,8 @@ import type { BatchRequest } from "../types/BatchRequest";
 /**
  * @interface Interface for Graph class.
  */
- export interface IGraph
- {
-    get ( endPoint : string, forceLogin : boolean )          : Promise <any>;
-    batch ( endPoints : BatchRequest, forceLogin : boolean ) : Promise <any>;
- }
+export interface IGraph
+{
+   get ( endPoint : string, forceLogin : boolean )          : Promise <any>;
+   batch ( endPoints : BatchRequest, forceLogin : boolean ) : Promise <any>;
+}

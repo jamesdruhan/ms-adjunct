@@ -6,10 +6,10 @@
  * @license MIT
  */
 
- /**
+/**
  * Adjunct Request object type definition.
  * 
- * @typedef { Object } Request
+ * @property { object } Request - Graph JSON batch object.
  */
 export type Request =
 {
@@ -17,14 +17,14 @@ export type Request =
     method     : string,
     url        : string,
     dependsOn? : string,
-    body?      : Object,
-    headers?   : Object
+    body?      : unknown,
+    headers?   : unknown
 }
 
- /**
+/**
  * Adjunct BatchRequest object type definition.
  * 
- * @typedef { Object } BatchRequest
+ * @property { object } BatchRequest - Graph JSON Request object.
  */
 export type BatchRequest =
 {

@@ -9,11 +9,11 @@
 /**
  * AppointErrorMessage object containing error messages related to the Appoint class.
  */
- export const AppointErrorMessage =
- {
+export const AppointErrorMessage =
+{
     notLoggedIn :
-     {
-         code : "appoint_not_logged_in",
-         desc : "Unable to return a valid access token, user must be logged in first."
-     }
- }
+    {
+        code : "appoint_not_logged_in",
+        desc : "Unable to return a valid access token, user must be logged in first."
+    }
+};

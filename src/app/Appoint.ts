@@ -109,6 +109,7 @@ export class Appoint implements IAppoint
      */
     public async signIn () : Promise <void>
     {
+        console.log("Test");
         try
         {
             // Login the user.
@@ -186,9 +187,9 @@ export class Appoint implements IAppoint
             let endPoint = "";
 
             // Set the request endpoint component.
-            if ( typeof userId === 'undefined' )
+            if ( typeof userId === "undefined" )
             {
-                endPoint = "/me"
+                endPoint = "/me";
             }
             else
             {
@@ -196,13 +197,13 @@ export class Appoint implements IAppoint
             }
 
             // Set the relationship endpoint component.
-            if ( typeof relationship !== 'undefined' )
+            if ( typeof relationship !== "undefined" )
             {
                 endPoint += `/${ relationship }`;
             }
 
             // Set the optional parameter component.
-            if ( typeof queryParameters !== 'undefined' )
+            if ( typeof queryParameters !== "undefined" )
             {
                 endPoint += `?${ queryParameters }`;
             }
@@ -227,51 +228,51 @@ export class Appoint implements IAppoint
      * @param { PhotoSizeM365 | undefined } size - Optional parameter. Leave undefined for full size or specify a size.
      * @returns { Promise <any> } - Returns a promise with the JSON object containing the resulting data.
      */
-     public async getUserPhoto ( userId? : string, size? : PhotoSizeM365 ) : Promise <any>
-     {
-         try
-         {
-             let endPoint = "";
- 
-             // Set the request endpoint component.
-             if ( typeof userId === 'undefined' )
-             {
-                 if ( typeof size === 'undefined' )
-                 {
-                    endPoint = `/me/photo`;
-                 }
-                 else
-                 {
+    public async getUserPhoto ( userId? : string, size? : PhotoSizeM365 ) : Promise <any>
+    {
+        try
+        {
+            let endPoint = "";
+
+            // Set the request endpoint component.
+            if ( typeof userId === "undefined" )
+            {
+                if ( typeof size === "undefined" )
+                {
+                    endPoint = "/me/photo";
+                }
+                else
+                {
                     endPoint += `/me/photos/${ size }`;
-                 }
-             }
-             else
-             {
-                 if ( typeof size === 'undefined' )
-                 {
+                }
+            }
+            else
+            {
+                if ( typeof size === "undefined" )
+                {
                     endPoint = `/users/${ userId }/photo`;
-                 }
-                 else
-                 {
+                }
+                else
+                {
                     endPoint += `/users/${ userId }/photos/${ size }`;
-                 }
-             }
- 
-             // Carry out the Graph request.
-             return await this.graph.get( endPoint );
-         }
-         catch ( e : any )
-         {
-             return Promise.reject( e );
-         }       
-     }
+                }
+            }
+
+            // Carry out the Graph request.
+            return await this.graph.get( endPoint );
+        }
+        catch ( e : any )
+        {
+            return Promise.reject( e );
+        }       
+    }
 
     /**
      * Gets and sets the logged in users data to a property called userInfo on the Appoint object.
      * This method is executed automatically when the login() method is used and the graphPermissions
      * setting has appropriate scopes which allow access to user profile data such as 'User.Read'.
      * 
-     * @returns { Promise <void> }
+     * @returns { Promise <void> } - A void promise.
      */
     public async setUserProfile() : Promise <void>
     {

@@ -6,7 +6,7 @@
  * @license MIT
  */
 
-import { SignInPersistance } from '../utility/Constants';
+import { SignInPersistance } from "../utility/Constants";
 import { IBrowserStorage }  from "./IBrowserStorage";
 
 /**
@@ -109,6 +109,6 @@ export class BrowserStorage implements IBrowserStorage
      */
     public containsKey ( key : string ) : boolean
     {
-        return this.windowStorage.hasOwnProperty( key );
+        return this.windowStorage[ key ] !== null ? true : false;
     }
 }

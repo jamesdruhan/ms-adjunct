@@ -6,10 +6,10 @@
  * @license MIT
  */
 
- /**
+/**
  * Adjunct user object type definition.
  * 
- * @typedef { Object } User
+ * @property { object } User - User details object.
  */
 export type User =
 {

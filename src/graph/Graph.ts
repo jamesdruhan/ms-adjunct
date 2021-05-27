@@ -43,7 +43,7 @@ export class Graph implements IGraph
      * @example
      * const adjunctGraph : Graph = new Graph( validatedContext );
      * 
-     * @param { Settings } settings - Adjunct settings object of validated configuration data.
+     * @param { Settings } context - Adjunct settings object of validated configuration data.
      * @param { Authentication } auth - Adjunct Authentication object used for obtaining access tokens.
      * @returns { Graph } - Object of the Graph class.
      */
@@ -167,7 +167,7 @@ export class Graph implements IGraph
                 }
                 else
                 {
-                    if ( typeof fetchJson.error !== 'undefined' )
+                    if ( typeof fetchJson.error !== "undefined" )
                     {
                         if ( fetchJson.error.code === GraphErrorCode.REQUEST_DENIED )
                         {
@@ -190,7 +190,7 @@ export class Graph implements IGraph
             }
             else
             {
-                return Promise.reject( { error : e, ...GraphErrorMessage.requestTypeInvalid } );
+                return Promise.reject( GraphErrorMessage.requestTypeInvalid );
             }
         }
         catch ( e : any )

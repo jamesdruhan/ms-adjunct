@@ -12,10 +12,10 @@ import type { AuthenticationResult } from "@azure/msal-browser";
 /**
  * @interface Interface for Authentication class.
  */
- export interface IAuthentication
- {
-     login ()                        : Promise <AuthenticationResult>;
-     logout ()                       : Promise <void>;
-     isUserLoggedIn ()               : boolean;
-     getToken ( TokenType, boolean ) : Promise <AuthenticationResult>
- }
+export interface IAuthentication
+{
+    login ()                        : Promise <AuthenticationResult>;
+    logout ()                       : Promise <void>;
+    isUserLoggedIn ()               : boolean;
+    getToken ( tokenType : TokenType, forceLogin : boolean ) : Promise <AuthenticationResult>
+}

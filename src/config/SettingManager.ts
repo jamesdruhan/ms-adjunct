@@ -62,13 +62,14 @@ export class SettingManager
     /**
      * Verifies the clientId is configured and returns it or generates an error.
      * 
+     * @throws SettingErrorMessage.clientIdMissing and SettingErrorMessage.authClientIdMissing.
      * @param { Settings } settings - Raw collection of Adjunct settings.
      * @returns { string } - Validated clientId setting.
      */
     private static getClientId ( settings : Settings ) : string
     {
         // clientId is not required if msalClient configuration data is present.
-        if ( typeof settings.msalClient !== 'undefined' && typeof settings.msalClient === 'object' )
+        if ( typeof settings.msalClient !== "undefined" && typeof settings.msalClient === "object" )
         {
             return "";
         }
@@ -99,6 +100,7 @@ export class SettingManager
     /**
      * Returns a valid tenantId or undefined. Generates an error if necessary.
      * 
+     * @throws SettingErrorMessage.tenantIdInvalid
      * @param { Settings } settings - Raw collection of Adjunct settings.
      * @returns { string | undefined } - Validated tenantId setting.
      */
@@ -117,6 +119,7 @@ export class SettingManager
     /**
      * Returns a valid set of app permission scopes to be used when authenticating with Azure AD.
      * 
+     * @throws throw SettingErrorMessage.appPermissionsInvalid.
      * @param { Settings } settings - Raw collection of Adjunct settings.
      * @returns { string [] } - Validated appPermissions setting array.
      */
@@ -136,13 +139,14 @@ export class SettingManager
         // Set default value.
         else
         {
-            return [ 'openid', 'profile' ];
+            return [ "openid", "profile" ];
         }
     }
 
     /**
      * Returns a valid set of graph permission scopes to be used when making Graph API calls.
      * 
+     * @throws SettingErrorMessage.graphPermissionsInvalid.
      * @param { Settings } settings - Raw collection of Adjunct settings.
      * @returns { string [] } - Validated graphPermissions setting.
      */
@@ -169,6 +173,7 @@ export class SettingManager
     /**
      * Returns a validated version of the Microsoft Graph to be used when making Graph API calls.
      * 
+     * @throws SettingErrorMessage.graphVersionInvalid.
      * @param { Settings } settings - Raw collection of Adjunct settings.
      * @returns { GraphVersion } - Validated graphVersion setting.
      */
@@ -178,7 +183,7 @@ export class SettingManager
         {
             if ( settings.graphVersion === GraphVersion.ONE || settings.graphVersion === GraphVersion.BETA )
             {
-            return settings.graphVersion;
+                return settings.graphVersion;
             }
             else
             {
@@ -195,6 +200,7 @@ export class SettingManager
     /**
      * Returns a validated httpsCookies setting which forces cookies to only be transferred over HTTPS.
      * 
+     * @throws SettingErrorMessage.httpsCookiesInvalid.
      * @param { Settings } settings - Raw collection of Adjunct settings.
      * @returns { boolean } - Validated httpsCookies setting.
      */
@@ -204,7 +210,7 @@ export class SettingManager
         {
             if ( typeof settings.httpsCookies === "boolean" )
             {
-            return settings.httpsCookies;
+                return settings.httpsCookies;
             }
             else
             {
@@ -221,6 +227,7 @@ export class SettingManager
     /**
      * Returns a validated allowCookies setting used for Adjunct and MSAL authentication browser storage.
      * 
+     * @throws SettingErrorMessage.allowCookiesInvalid.
      * @param { Settings } settings - Raw collection of Adjunct settings.
      * @returns { boolean } - Validated allowCookies setting.
      */
@@ -230,7 +237,7 @@ export class SettingManager
         {
             if ( typeof settings.allowCookies === "boolean" )
             {
-            return settings.allowCookies;
+                return settings.allowCookies;
             }
             else
             {
@@ -247,6 +254,7 @@ export class SettingManager
     /**
      * Returns a validated signInMethod setting which determines how users are signed in.
      * 
+     * @throws SettingErrorMessage.signInMethodInvalid and SettingErrorMessage.signInMethodInvalid.
      * @param { Settings } settings - Raw collection of Adjunct settings.
      * @returns { SignInMethod } - Validated signInMethod setting.
      */
@@ -256,14 +264,14 @@ export class SettingManager
         {
             if ( settings.signInMethod === SignInMethod.POPUP || settings.signInMethod === SignInMethod.REDIRECT )
             {
-            if ( settings.signInMethod === SignInMethod.REDIRECT && ( typeof settings.authRedirectUrl === "undefined" || settings.authRedirectUrl === "" ) )
-            {
-                throw SettingErrorMessage.signInMethodMissingRedirect;
-            }
-            else
-            {
-                return settings.signInMethod;
-            }
+                if ( settings.signInMethod === SignInMethod.REDIRECT && ( typeof settings.authRedirectUrl === "undefined" || settings.authRedirectUrl === "" ) )
+                {
+                    throw SettingErrorMessage.signInMethodMissingRedirect;
+                }
+                else
+                {
+                    return settings.signInMethod;
+                }
             }
             else
             {
@@ -280,6 +288,7 @@ export class SettingManager
     /**
      * Returns a validated signInPersistance setting used for Adjunct and MSAL authentication browser storage.
      * 
+     * @throws SettingErrorMessage.signInPersistanceInvalid.
      * @param { Settings } settings - Raw collection of Adjunct settings.
      * @returns { SignInPersistance } - Validated signInPersistance setting.
      */
@@ -289,7 +298,7 @@ export class SettingManager
         {
             if ( settings.signInPersistance === SignInPersistance.REMEMBER || settings.signInPersistance === SignInPersistance.SESSION )
             {
-            return settings.signInPersistance;
+                return settings.signInPersistance;
             }
             else
             {
@@ -306,6 +315,7 @@ export class SettingManager
     /**
      * Returns a valid authRedirectUrl or undefined.
      * 
+     * @throws SettingErrorMessage.authRedirectUrlInvalid.
      * @param { Settings } settings - Raw collection of Adjunct settings.
      * @returns { string } - Validated authRedirectUrl setting.
      */
@@ -324,6 +334,7 @@ export class SettingManager
     /**
      * Returns a valid signOutUrl or undefined.
      * 
+     * @throws SettingErrorMessage.signOutUrlInvalid.
      * @param { Settings } settings - Raw collection of Adjunct settings.
      * @returns { string | undefined } - Validated signOutUrl setting.
      */
@@ -342,6 +353,7 @@ export class SettingManager
     /**
      * Returns a valid renewTokenRedirectUrl.
      * 
+     * @throws SettingErrorMessage.renewTokenRedirectUrlInvalid.
      * @param { Settings } settings - Raw collection of Adjunct settings.
      * @returns { string } - Validated authRedirectUrl setting.
      */
@@ -360,6 +372,7 @@ export class SettingManager
     /**
      * Returns a valid msalConfig or undefined.
      * 
+     * @throws SettingErrorMessage.msalConfigMissing.
      * @param { Settings } settings - Raw collection of Adjunct settings.
      * @returns { Configuration | undefined } - Validated msalConfig setting.
      */
@@ -378,6 +391,7 @@ export class SettingManager
     /**
      * Returns a valid signInMultipleAccountsCallBack setting.
      * 
+     * @throws SettingErrorMessage.signInMultipleAccountsCallbackInvalid.
      * @param { Settings } settings - Raw collection of Adjunct settings.
      * @returns { ( accountChoices : AccountInfo [] ) => Promise <AccountInfo> } - Validated signInMultipleAccountsCallBack setting.
      */
@@ -403,22 +417,23 @@ export class SettingManager
                 {
                     resolve( accountChoices[0] );
                 });
-            }
+            };
         }
     }
 
     /**
      * Returns a valid authority URL used for Microsoft Identity login.
      * 
+     * @throws SettingErrorMessage.authorityInvalid.
      * @param { Settings } settings - Raw collection of Adjunct settings.
      * @param { Settings } verifiedSettings - Validated settings object.
      * @returns { string } - Validated authority URL.
      */
     private static getAuthority ( settings : Settings, verifiedSettings : Settings ) : string
     {
-        if ( typeof settings.authority !== 'undefined' )
+        if ( typeof settings.authority !== "undefined" )
         {
-            if ( typeof settings.authority === 'string' )
+            if ( typeof settings.authority === "string" )
             {
                 return settings.authority;
             }
@@ -445,14 +460,16 @@ export class SettingManager
     /**
      * Returns a instantiated object of the class PublicClientApplication from @msal-browser used for authentication and getting tokens.
      * 
-     * @param { Configuration } configuration - Verified MSAL configuration object.
+     * @throws SettingErrorMessage.msalClientInvalid.
+     * @param { Settings } settings - Verified MSAL configuration object.
+     * @param { Settings } verifiedSettings - Verified MSAL configuration object.
      * @returns { PublicClientApplication } - Instantiated PublicClientApplication object.
      */
     private static getMSALClient ( settings : Settings, verifiedSettings : Settings ) : PublicClientApplication
     {
         if ( typeof settings.msalClient !== "undefined" )
         {
-            if ( typeof settings.msalClient === 'object' )
+            if ( typeof settings.msalClient === "object" )
             {
                 return settings.msalClient;
             }
@@ -464,7 +481,7 @@ export class SettingManager
         else
         {
             // Create a PublicClientApplication object from verified app msalConfig setting.
-            if ( typeof verifiedSettings.msalConfig !== 'undefined' )
+            if ( typeof verifiedSettings.msalConfig !== "undefined" )
             {
                 return new PublicClientApplication( verifiedSettings.msalConfig );
             }

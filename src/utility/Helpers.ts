@@ -14,6 +14,7 @@ export class Helpers
     /**
      * Checks if an array only consists of 'string' typed items. A return value of
      * true indicates all items in the array are strings, otherwise false is returned.
+     * 
      * @static
      * 
      * @example
@@ -38,6 +39,7 @@ export class Helpers
      * A returned value of true indicates a scope in scopesToCheck exists in scopesToBeChecked. This
      * is handy to test of a Graph Permission scope is present in a array of scopes such as those
      * found in the Adjunct settings.
+     * 
      * @static
      * 
      * @example
