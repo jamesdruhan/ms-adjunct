@@ -1,3 +1,7 @@
+</h1><h3 align="center">THIS DOCUMENTATION FOR THIS PROJECT IS NOT COMPLETE</h3>
+
+</h1><h3 align="center">THIS PROJECT IS NOT READY FOR PRODUCTION</h3>
+
 <h1 align="center">
   Adjunct for Microsoft Graph
 </h1>
@@ -15,12 +19,12 @@ npm install @adjunct-js/adjunct-graph
 ## ✍ Usage
 The `@adjunct/adjunct-graph` library acts as a wrapper around the MSAL `@azure/msal-browser` library which securely handles authentication, authorization and access token generation. In addition, it uses the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) to make REST calls.
 
-1. [Application Setup]#application-setup
-1. [Initialization]#initialization
-1. [Authentication]#authentication
-1. [Authorization]#authorization
-1. [User Info]#user-info
-1. [Graph API]#graph-api
+1. [Application Setup](#application-setup)
+1. [Initialization](#initialization)
+1. [Authentication](#authentication)
+1. [Authorization](#authorization)
+1. [User Info](#user-info)
+1. [Graph API](#graph-api)
 
 ## Application Setup
 
